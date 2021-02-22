@@ -1,0 +1,9 @@
+pip
+numpy
+setuptools
+vispy
+certifi
+chardet
+urllib3
+idna
+p5
