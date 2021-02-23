@@ -1,6 +1,5 @@
 import random
 from datetime import datetime
-from typing import Tuple
 
 from p5 import *
 
@@ -29,7 +28,6 @@ def setup():
 def get_style():
     color = get_color()
     monochrome = get_mono()
-    no_stroke()
     stroke(**color)
     fill(**monochrome)
 
@@ -85,7 +83,14 @@ def draw():
 
 
 def mouse_pressed():
-    redraw()
+    get_style()
+    stroke_weight(2)
+    monochrome = get_mono()
+    y = 1
+    while y < height:
+        background(**monochrome)
+        line(0, y, width, y)
+        y *= 1.025
 
 
 if __name__ == '__main__':
