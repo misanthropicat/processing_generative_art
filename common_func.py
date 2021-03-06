@@ -28,6 +28,11 @@ def get_mono():
                 alpha=random.randint(0, 255))
 
 
+def get_contrasted(mono: dict):
+    return dict(gray=255-mono['gray'],
+                alpha=255-mono['alpha'])
+
+
 def draw_recursively_3(func, x1, y1, z1, x2, y2, z2):
     func(x1, y1, z1, x2, y2, z2)
     x1 /= 2

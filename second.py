@@ -8,8 +8,9 @@ iter = 0
 
 
 def setup():
+    global iter
     size(width, height)
-    background(255 - iter)
+    background(iter * 20)
     get_style()
 
 
@@ -27,8 +28,8 @@ def draw():
     y_coord += 10
     if y_coord > height:
         y_coord = 0
-        background(255 - iter * 20)
         iter += 1
+        background(iter * 20)
         get_style()
 
 
