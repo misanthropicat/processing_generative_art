@@ -1,6 +1,6 @@
 ---
 name: Release template
-about: Automated release procedure
+about: Used by release workflow
 title: "[RELEASE]"
 labels: ''
 assignees: ''
