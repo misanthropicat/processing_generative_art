@@ -7,11 +7,5 @@ assignees: ''
 
 ---
 
-## Issue title
-
-Issue {{ payload.repository.full_name }}/{{ payload.issue.number }}
-Release {{ payload.ref }}
-
-## Issue statement
-
-Release CSI version {{ payload.ref }}
+Release: {{ payload.release.tag_name }}
+{{ payload.release.body }}
