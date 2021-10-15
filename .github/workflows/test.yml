@@ -13,23 +13,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Create issue
-        id: create_issue
-        uses: JasonEtco/create-an-issue@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.CSI_WF_TOKEN }}
-        with:
-          filename: .github/ISSUE_TEMPLATE/release-template.md
-          assignees: misanthropicat
-        if: startsWith(github.ref, 'refs/tags/')
+      # - name: Create issue
+      #   id: create_issue
+      #   uses: JasonEtco/create-an-issue@v2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.CSI_WF_TOKEN }}
+      #   with:
+      #     filename: .github/ISSUE_TEMPLATE/release-template.md
+      #     assignees: misanthropicat
+      #   if: startsWith(github.ref, 'refs/tags/')
 
-      - name: Parse issue body
-        uses: peter-murray/issue-body-parser-action@v1
-        id: parse_issue
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue_id: ${{ steps.create_issue.outputs.number }}
-          payload: yaml
+      - name: Get issue body
+        run: echo ${{ github.event.release.payload.release.body }}
+
+      # - name: Parse issue body
+      #   uses: peter-murray/issue-body-parser-action@v1
+      #   id: parse_issue
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     issue_id: 4
+      #     payload: yaml
 
       - name: Trigger release workflow in csi-baremetal-operator repo
         uses: benc-uk/workflow-dispatch@v1
