@@ -24,7 +24,7 @@ jobs:
       #   if: startsWith(github.ref, 'refs/tags/')
 
       - name: Get issue body
-        run: echo ${{ github.event.release.body }}
+        run: echo "${{ github.event.release.body }}"
 
       # - name: Parse issue body
       #   uses: peter-murray/issue-body-parser-action@v1
